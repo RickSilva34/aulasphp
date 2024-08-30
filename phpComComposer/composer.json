@@ -1,0 +1,15 @@
+{
+    "name": "admin/php-com-composer",
+    "description": "n",
+    "autoload": {
+        "psr-4": {
+            "Admin\\PhpComComposer\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "project"
+        }
+    ],
+    "require": {}
+}
