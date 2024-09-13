@@ -15,7 +15,7 @@ class Login
     // verificar o login
     public function authenticate()
     {
-        // usuário e senhas corretos
+
         $expectedUsername = 'admin';
         $expectedPassword = 'admin123';
 
