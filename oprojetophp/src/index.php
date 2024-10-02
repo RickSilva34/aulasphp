@@ -1,6 +1,8 @@
 <?php
 require_once 'Login.php';
 
+include("conexao.php");
+
 $message = '';
 $loginSuccess = false;
 
@@ -21,71 +23,116 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
 
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Usuário</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #000;
-            color: white;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
         }
 
-        .container {
-            background-color: #282828;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        h1 {
             text-align: center;
-            color: white;
-            width: 300px;
+            color: #333;
         }
 
-        input {
-            padding: 10px;
-            margin: 10px 0;
-            width: calc(100% - 22px);
-            border-radius: 30px;
+        form {
+            max-width: 400px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
-        button {
-            padding: 10px 20px;
-            background-color: #3d3d3d;
-            color: white;
-            border: none;
-            cursor: pointer;
-            margin-top: 10px;
-        }
-
-        button:hover {
-            background-color: #303030;
-        }
-
-        .message {
-            margin-top: 20px;
+        label {
+            display: block;
+            margin-bottom: 5px;
             font-weight: bold;
         }
-    </style>
-    <title>Login</title>
-</head>
-<body>
-<div class="container">
-    <h1>Login</h1>
 
-    <form action="index.php" method="post">
-        <label for="username">Usuário:</label>
-        <input type="text" id="username" name="username" required>
-        <br>
-        <label for="password">Senha:</label>
-        <input type="password" id="password" name="password" required>
-        <br>
-        <button type="submit">Entrar</button>
-    </form>
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            transition: border 0.3s, box-shadow 0.3s;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="password"]:focus {
+            border-color: #007BFF;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+            outline: none;
+        }
+
+        .shadow__btn {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+            width: 100%;
+        }
+
+        .shadow__btn:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+
+        .link-login {
+            color: #007BFF;
+            text-decoration: none;
+        }
+
+        .link-login:hover {
+            text-decoration: underline;
+        }
+
+        p {
+            text-align: center;
+            margin-top: 20px;
+            color: #555;
+        }
+    </style>
+    </head>
+<body>
+    
+        <h1>Cadastro de Usuário</h1>
+        <form action="#" method="post">
+            
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" required>
+            
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            
+                <label for="telefone">Telefone:</label>
+                <input type="text" id="telefone" name="telefone" required>
+            
+                <label for="senha">Senha:</label>
+                <input type="password" id="senha" name="senha" required>
+            
+                <label for="confirmar">Confirmar Senha:</label>
+                <input type="password" id="confirmar" name="confirmar" required>
+            
+            <button type="submit" class="shadow__btn">Cadastrar</button>
+        </form>
+ 
+        
+           
+ 
    
     <?php if ($message): ?>
         <p><?php echo htmlspecialchars($message); ?></p>
